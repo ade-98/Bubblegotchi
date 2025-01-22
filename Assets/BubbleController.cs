@@ -20,9 +20,11 @@ public class BubbleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get left click + right clicked input actions.
         leftClickPressed = Input.GetMouseButtonDown(0);
         rightClickPressed = Input.GetMouseButtonDown(1);
 
+        // Float bubble left/right on leftclick.
         if (leftClickPressed)
         {
             Vector2 mousePosition = cameraToCastFrom.ScreenToWorldPoint(Input.mousePosition);
@@ -44,10 +46,10 @@ public class BubbleController : MonoBehaviour
             }
         }
 
+        // Float bubble up on rightclick.
         if (rightClickPressed)
         {
             myRigidBody.linearVelocity += new Vector2(0, verticalPushOnClick);
-            //Debug.Log("Right-clicked");
         }
 
 
