@@ -640,8 +640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 1241516440}
-  verticalLiftOnClick: 2
-  clickPower: 2
+  verticalPushOnClick: 10
+  horizontalPushOnClick: 10
 --- !u!1 &2056452321
 GameObject:
   m_ObjectHideFlags: 0
