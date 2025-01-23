@@ -44,7 +44,7 @@ public class BubbleController : MonoBehaviour
             {
                 if(!_pushAudio.IsNull)
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot(_pushAudio.Guid);
+                    FMODUnity.RuntimeManager.PlayOneShot(_pushAudio.Guid, transform.position);
                 }
                 GameObject gameObject = hit.collider.gameObject;
 
@@ -58,7 +58,7 @@ public class BubbleController : MonoBehaviour
             }
             else if(!_clickAudio.IsNull)
             {
-                FMODUnity.RuntimeManager.PlayOneShot(_clickAudio.Guid);
+                FMODUnity.RuntimeManager.PlayOneShot(_clickAudio.Guid, transform.position);
             }
         }
 
@@ -68,7 +68,7 @@ public class BubbleController : MonoBehaviour
             myRigidBody.linearVelocity += new Vector2(0, verticalPushOnClick);
             if (!_pushAudio.IsNull)
             {
-                FMODUnity.RuntimeManager.PlayOneShot(_pushAudio.Guid);
+                FMODUnity.RuntimeManager.PlayOneShot(_pushAudio.Guid, transform.position);
             }
         }
 
