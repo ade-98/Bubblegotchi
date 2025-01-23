@@ -168,3 +168,31 @@ MonoBehaviour:
   myRigidBody: {fileID: 5518535484535151767}
   verticalPushOnClick: 10
   horizontalPushOnClick: 10
+  _clickAudio:
+    Guid:
+      Data1: 1396983036
+      Data2: 1341791901
+      Data3: -381705844
+      Data4: 1626012474
+    Path: event:/Player/click_air
+  _pushAudio:
+    Guid:
+      Data1: 1807047500
+      Data2: 1291787579
+      Data3: -1372309074
+      Data4: 865465284
+    Path: event:/Player/bubble_push
+  _collideAudio:
+    Guid:
+      Data1: 1685308754
+      Data2: 1339903350
+      Data3: -317764217
+      Data4: 1365190744
+    Path: event:/Player/bubble_collide
+  _breakAudio:
+    Guid:
+      Data1: -787091250
+      Data2: 1312010385
+      Data3: 624955808
+      Data4: 229487104
+    Path: event:/Player/bubble_break
