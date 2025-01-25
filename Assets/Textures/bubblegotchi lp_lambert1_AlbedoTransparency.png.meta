@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 63fc6238865328c4aba07f540847a614
+guid: cc69dae4948373f4db15de3c72c8e2b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1338521732289184403
-    second: TempCactus_0
+      213: 3541434188289138899
+    second: bubblegotchi lp_lambert1_AlbedoTransparency_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TempCactus_0
+      name: bubblegotchi lp_lambert1_AlbedoTransparency_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 394
-        height: 1200
+        width: 2048
+        height: 2048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 392cc397c62639210800000000000000
-      internalID: 1338521732289184403
+      spriteID: 3d0e56481a3b52130800000000000000
+      internalID: 3541434188289138899
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bubblegotchi lp_lambert1_AlbedoTransparency_0: 3541434188289138899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
