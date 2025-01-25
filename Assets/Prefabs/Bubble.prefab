@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1686383102737335665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,13 +84,75 @@ PrefabInstance:
       propertyPath: m_Name
       value: Body
       objectReference: {fileID: 0}
+    - target: {fileID: 5207617002261309281, guid: f2fe39dad85872042b73330407f659d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5207617002261309281, guid: f2fe39dad85872042b73330407f659d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3493701185651465627}
   m_SourcePrefab: {fileID: 100100000, guid: f2fe39dad85872042b73330407f659d4, type: 3}
 --- !u!4 &3988217965707914828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4588415911106094515, guid: f2fe39dad85872042b73330407f659d4, type: 3}
+  m_PrefabInstance: {fileID: 645612260133391359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4661367436731395230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5207617002261309281, guid: f2fe39dad85872042b73330407f659d4, type: 3}
+  m_PrefabInstance: {fileID: 645612260133391359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3493701185651465627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4661367436731395230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f4c2dfc7e5eca499e97ecf686d10b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraToCastFrom: {fileID: 0}
+  myRigidBody: {fileID: 4927054707944871784}
+  verticalPushOnClick: 5
+  horizontalPushOnClick: 5
+  moveInput: {fileID: 7173240884944205710, guid: 00e0b0f9fead09040927c3a71daf3ae5, type: 3}
+  _clickAudio:
+    Guid:
+      Data1: 1396983036
+      Data2: 1341791901
+      Data3: -381705844
+      Data4: 1626012474
+    Path: event:/Player/click_air
+  _pushAudio:
+    Guid:
+      Data1: 1807047500
+      Data2: 1291787579
+      Data3: -1372309074
+      Data4: 865465284
+    Path: event:/Player/bubble_push
+  _collideAudio:
+    Guid:
+      Data1: 1685308754
+      Data2: 1339903350
+      Data3: -317764217
+      Data4: 1365190744
+    Path: event:/Player/bubble_collide
+  _breakAudio:
+    Guid:
+      Data1: -787091250
+      Data2: 1312010385
+      Data3: 624955808
+      Data4: 229487104
+    Path: event:/Player/bubble_break
+--- !u!50 &4927054707944871784 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5518535484535151767, guid: f2fe39dad85872042b73330407f659d4, type: 3}
   m_PrefabInstance: {fileID: 645612260133391359}
   m_PrefabAsset: {fileID: 0}
