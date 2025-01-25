@@ -74,4 +74,19 @@ public class BubbleController : MonoBehaviour
 
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            Debug.Log("I hit something");
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("PrintOnDisable: script was disabled");
+    }
 }
