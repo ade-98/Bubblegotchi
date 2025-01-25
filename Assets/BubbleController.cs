@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class BubbleController : MonoBehaviour
 {
-    private Camera cameraToCastFrom;
+    public Camera cameraToCastFrom;
 
     public Rigidbody2D myRigidBody;
     public float verticalPushOnClick = 2;
     public float horizontalPushOnClick = 5;
+
+    public InputActionReference moveInput;
 
     //Audio
     [SerializeField] private FMODUnity.EventReference _clickAudio;
@@ -20,7 +23,7 @@ public class BubbleController : MonoBehaviour
 
     void Start()
     {
-        cameraToCastFrom = Camera.main;
+
     }
 
     // Update is called once per frame
@@ -53,7 +56,7 @@ public class BubbleController : MonoBehaviour
 
                 Vector2 xDirection = objectPosV2 - mousePosV2; // Get difference of x between bubble position and mouse click.
 
-                myRigidBody.linearVelocity = new Vector2(xDirection.x * horizontalPushOnClick, 0);
+                //myRigidBody.linearVelocity = new Vector2(xDirection.x * horizontalPushOnClick, 0);
                 //Debug.Log($"Moving in direction: {myRigidBody.linearVelocity}");
             }
             else if(!_clickAudio.IsNull)
@@ -65,13 +68,56 @@ public class BubbleController : MonoBehaviour
         // Float bubble up on rightclick.
         if (rightClickPressed)
         {
-            myRigidBody.linearVelocity += new Vector2(0, verticalPushOnClick);
+            //myRigidBody.linearVelocity += new Vector2(0, verticalPushOnClick);
             if (!_pushAudio.IsNull)
             {
                 FMODUnity.RuntimeManager.PlayOneShot(_pushAudio.Guid, transform.position);
             }
         }
 
+        //Debug.Log("Perceived moveDir value:" + moveInput.action.ReadValue<Vector2>().ToString());
 
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            BubbleMoveUp();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            BubbleMoveRight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            BubbleMoveLeft();
+        }
+
+    }
+
+    private void PlayPushSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(_pushAudio.Guid, transform.position);
+    }
+
+    private void PlayClickSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(_clickAudio.Guid, transform.position);
+    }
+
+
+    private void BubbleMoveUp()
+    {
+        myRigidBody.linearVelocity += new Vector2(0, verticalPushOnClick);
+        PlayPushSound();
+    }
+
+    private void BubbleMoveRight()
+    {
+        myRigidBody.linearVelocity = new Vector2(horizontalPushOnClick, 0);
+    }
+
+    private void BubbleMoveLeft()
+    {
+        myRigidBody.linearVelocity = new Vector2(-horizontalPushOnClick, 0);
     }
 }
