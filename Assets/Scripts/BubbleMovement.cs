@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class BubblePhysics : MonoBehaviour
+public class BubbleMovement : MonoBehaviour
 {
     public float moveForce = 5.0f;
-    public float randomForceMaxInterval = 1.0f;
-    public float buoyancyStrength = 15f;
-    public float dragFactor = 0.05f;
-    public float gravityScale = 0.2f;
+
+    private float randomForceMaxInterval = 1.0f;
+    private float buoyancyStrength = 2.5f;
+    private float dragFactor = 0.05f;
+    private float gravityScale = 0.2f;
+    private float timeSinceLastMove;
 
     private Rigidbody2D bubbleRb;
-    private float timeSinceLastMove;
-    private Vector2 currentRandomDirection;
+
+    private Vector2 currentDirection;
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class BubblePhysics : MonoBehaviour
         bubbleRb.mass = 0.1f;
         bubbleRb.linearVelocity = Vector2.zero;
         timeSinceLastMove = 0.0f;
-        currentRandomDirection = GetRandomDirection();
+        currentDirection = GetDirection();
     }
 
     void FixedUpdate()
@@ -29,7 +31,7 @@ public class BubblePhysics : MonoBehaviour
         // Checks if time since bubble has changed directions is greater than the max interval value
         if (timeSinceLastMove >= randomForceMaxInterval)
         {
-            currentRandomDirection = GetRandomDirection();
+            currentDirection = GetDirection();
             timeSinceLastMove = 0.0f;
         }
 
@@ -39,7 +41,7 @@ public class BubblePhysics : MonoBehaviour
     }
 
     // Gets a random direction for the bubble to move
-    private Vector2 GetRandomDirection()
+    private Vector2 GetDirection()
     {
         return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
@@ -47,7 +49,7 @@ public class BubblePhysics : MonoBehaviour
     private void ApplySmoothMovement()
     {
         // Adds force based on the random direction it is given
-        bubbleRb.AddForce(currentRandomDirection * moveForce, ForceMode2D.Force);
+        bubbleRb.AddForce(currentDirection * moveForce, ForceMode2D.Force);
     }
 
     // Adds force from the fan
@@ -56,7 +58,7 @@ public class BubblePhysics : MonoBehaviour
         bubbleRb.AddForce(fanDirection * forceToApply, ForceMode2D.Force);
 
         // The direction the bubble is wandering in is overwritten by the direction the fan pushed it in
-        currentRandomDirection = fanDirection;
+        currentDirection = fanDirection;
         timeSinceLastMove = Random.Range(-1.0f, -5.0f);
     }
 

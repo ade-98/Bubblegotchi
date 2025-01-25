@@ -6,20 +6,20 @@ public class FanController : MonoBehaviour
     [SerializeField] private float fanForce = 0.5f;
     [SerializeField] private float maxDistanceToBubble = 5.0f;
 
-    private BubblePhysics bubblePhysics;
+    private BubbleMovement bubblePhysics;
 
     private Vector2 direction;
 
     void Start()
     {
-        bubblePhysics = bubble.GetComponent<BubblePhysics>();
+        bubblePhysics = bubble.GetComponent<BubbleMovement>();
     }
 
     void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        transform.position = new Vector2(mousePos.x, mousePos.y);
+        transform.position = mousePos;
 
         Cursor.visible = false;
 
